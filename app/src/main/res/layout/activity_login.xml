@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".activities.LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/background_header_login"
+        android:scaleType="centerCrop"
+        android:src="@drawable/meeting"
+        app:layout_constrainedHeight="true"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/imageHeader"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:textSize="@dimen/_20ssp"
+        android:textColor="@color/text_color"
+        android:textStyle="bold"
+        android:text="@string/app_name"
+        android:layout_marginLeft="@dimen/_30sdp" />
+    <View
+        android:id="@+id/viewSupport"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageHeader"
+        app:layout_constraintBottom_toBottomOf="@id/imageHeader"
+        android:background="@drawable/background_view_support"/>
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imageHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_20ssp"
+        android:text="@string/welcome"
+        android:textStyle="bold"
+        />
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        android:textColorHint="@color/text_hint_color"
+        android:paddingStart="@dimen/_35sdp"
+        android:importantForAutofill="no"
+        tools:ignore="RtlCompat,RtlSymmetry"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_40sdp"
+        app:layout_constraintStart_toStartOf="@id/edtEmail"/>
+
+    <ImageView
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        app:layout_constraintStart_toStartOf="@id/guidelineImage"
+        app:layout_constraintTop_toTopOf="@id/edtEmail"
+        app:layout_constraintBottom_toBottomOf="@id/edtEmail"
+        android:src="@drawable/ic_email"
+        android:contentDescription="@string/app_name"
+        tools:ignore="RtlCompat,RtlSymmetry" />
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintTop_toBottomOf="@id/edtEmail"
+        android:paddingStart="@dimen/_35sdp"
+        android:textColorHint="@color/text_hint_color"
+        android:hint="@string/password"
+        tools:ignore="LabelFor,RtlCompat,RtlSymmetry"
+
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        />
+    <ImageView
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        app:layout_constraintStart_toStartOf="@id/guidelineImage"
+        app:layout_constraintTop_toTopOf="@id/edtPassword"
+        app:layout_constraintBottom_toBottomOf="@id/edtPassword"
+        android:src="@drawable/ic_password"
+        android:contentDescription="@string/app_name"
+        tools:ignore="RtlCompat,RtlSymmetry" />
+    <CheckBox
+        android:id="@+id/cbRememberAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guidelineImage"
+        app:layout_constraintTop_toBottomOf="@id/edtPassword"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/cbRememberAccount"
+        android:text="@string/remember_account"
+        app:layout_constraintBaseline_toBaselineOf="@id/cbRememberAccount"/>
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbRememberAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/login"
+        android:background="@drawable/background_btn_login"
+        android:paddingEnd="@dimen/_30sdp"
+        android:paddingStart="@dimen/_30sdp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tvSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_up"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"
+        app:layout_constraintStart_toStartOf="@id/btnLogin"
+        app:layout_constraintEnd_toEndOf="@id/btnLogin"
+        android:layout_marginTop="@dimen/_5sdp"
+
+        android:layout_marginBottom="@dimen/_10sdp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
