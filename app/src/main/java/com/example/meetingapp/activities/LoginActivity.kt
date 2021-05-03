@@ -26,8 +26,6 @@ class LoginActivity : AppCompatActivity() {
 
     lateinit var loginBinding: ActivityLoginBinding
     lateinit var model : AccountViewModel
-    lateinit var sharedPreferences: SharedPreferencesData
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loginBinding = ActivityLoginBinding.inflate(layoutInflater)
@@ -40,11 +38,16 @@ class LoginActivity : AppCompatActivity() {
 
     @SuppressLint("NewApi")
     private fun initialization() {
+        model = ViewModelProvider(this).get(AccountViewModel::class.java)
+        if (model.getSharedPreferences(this).checkSigned()){
+            startActivity(Intent(this, MainActivity::class.java))
+        }
         loginBinding.tvSignUp.setOnClickListener {
             loginBinding.tvSignUp.setShadowLayer(4f, 2f, 2f, resources.getColor(R.color.shadow_color))
             startActivity(Intent(this, SignUpActivity::class.java))
 
         }
+
         loginBinding.btnLogin.setOnClickListener {
             if (loginBinding.edtEmail.text.isNullOrEmpty() || loginBinding.edtPassword.text.isNullOrEmpty()) {
                 Toast.makeText(this, "Xin hãy nhập đầy dủ thông tin", Toast.LENGTH_SHORT).show()
@@ -55,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         }
-        model = ViewModelProvider(this).get(AccountViewModel::class.java)
+
     }
 
     override fun onDestroy() {
@@ -68,8 +71,10 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(loginBinding.edtEmail.text.toString(), loginBinding.edtPassword.text.toString())
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        model.getUser(firebaseAuth)
-                        model.getSharedPreferences(this)
+                        model.getUserFromFirebase(firebaseAuth).observe(this,{user ->
+                            Log.d("BBB", "Login: name : ${user.name}\nemail : ${user.email}\npass : ${user.password}\nid : ${user.id}")
+                            model.getSharedPreferences(this).setUser(user)
+                        })
 
                         startActivity(Intent(this, MainActivity::class.java))
                         loginBinding.btnLogin.revertAnimation {
