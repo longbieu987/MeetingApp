@@ -11,4 +11,5 @@
     <color name="text_hint_color">#8BBAB6B6</color>
     <color name="primary_color">#415BDD</color>
     <color name="primary_color_dark">#FF3700B3</color>
+    <color name="shadow_color">#36000000</color>
 </resources>

@@ -39,6 +39,7 @@
         app:layout_constraintVertical_chainStyle="packed"
         android:importantForAutofill="no"
         android:paddingStart="@dimen/_45sdp"
+        android:paddingEnd="@dimen/_15sdp"
         android:hint="@string/name"
         android:inputType="text"
         tools:ignore="LabelFor,RtlCompat,RtlSymmetry" />
@@ -78,6 +79,7 @@
         app:layout_constraintTop_toBottomOf="@id/inputName"
         android:importantForAutofill="no"
         android:paddingStart="@dimen/_45sdp"
+        android:paddingEnd="@dimen/_15sdp"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         tools:ignore="LabelFor,RtlCompat,RtlSymmetry" />
@@ -104,6 +106,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inputEmail"
         android:paddingStart="@dimen/_45sdp"
+        android:paddingEnd="@dimen/_15sdp"
         android:hint="@string/password"
         android:importantForAutofill="no"
         android:inputType="textPassword"
@@ -130,6 +133,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inputPassword"
         android:paddingStart="@dimen/_45sdp"
+        android:paddingEnd="@dimen/_15sdp"
         android:hint="@string/confirm_password"
         android:importantForAutofill="no"
         android:inputType="textPassword"
@@ -145,7 +149,7 @@
         android:src="@drawable/ic_password"
         android:contentDescription="@string/app_name" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
         android:id="@+id/btnSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -161,7 +165,10 @@
         app:layout_constraintCircleAngle="180"
         android:paddingEnd="@dimen/_25sdp"
         android:text="@string/sign_up"
-
+        app:spinning_bar_color="@color/primary_color"
+        app:spinning_bar_width="@dimen/_4sdp"
+        app:spinning_bar_padding="@dimen/_6sdp"
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
