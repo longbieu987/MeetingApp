@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initialization()
+        initView()
         model.getSharedPreferences(this).getUser().observe(this, { user ->
             Log.d(
                 "BBB",
@@ -39,31 +40,19 @@ class MainActivity : AppCompatActivity() {
             )
         })
 
+
     }
+
     private fun initialization() {
         model = ViewModelProvider(this).get(AccountViewModel::class.java)
         sharedPreferences = SharedPreferencesData(this)
 
-
-        binding.btNav.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.menuHome -> {
-                    loadFragment(HomeFragment.newInstance("1", "2"))
-                    binding.viewPager.currentItem = 0
-                    true
-                }
-                R.id.menuPersonal -> {
-                    loadFragment(PersonalFragment.newInstance("1", "2"))
-                    binding.viewPager.currentItem = 1
-                    true
-                }
-                else -> {
-                    false
-                }
-            }
-        }
-
         pagerAdapter = ViewPagerAdapter(supportFragmentManager,FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
+
+
+
+    }
+    fun initView(){
         binding.viewPager.adapter = pagerAdapter
         binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
             override fun onPageScrolled(
@@ -89,8 +78,23 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
-
-
+        binding.btNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menuHome -> {
+                    loadFragment(HomeFragment.newInstance("1", "2"))
+                    binding.viewPager.currentItem = 0
+                    true
+                }
+                R.id.menuPersonal -> {
+                    loadFragment(PersonalFragment.newInstance("1", "2"))
+                    binding.viewPager.currentItem = 1
+                    true
+                }
+                else -> {
+                    false
+                }
+            }
+        }
     }
     private fun loadFragment(fragment: Fragment) {
         // load Fragment

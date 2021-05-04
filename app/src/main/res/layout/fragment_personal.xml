@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.PersonalFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.PersonalFragment"
+    android:background="@color/background">
 
-    <!-- TODO: Update blank fragment layout -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="106dp"
+        android:layout_height="106dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#4D000000"
+        android:src="@drawable/ic_person"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_30sdp"/>
     <TextView
+        android:id="@+id/tvProfileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/profile_image"
+        app:layout_constraintEnd_toEndOf="@id/profile_image"
+        app:layout_constraintTop_toBottomOf="@id/profile_image"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_18ssp"
+        android:textColor="@color/black"
+        android:text="Long"/>
+    <TextView
+        android:id="@+id/tvProfileInformation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/personal" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvProfileName"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Information"
+        android:paddingStart="@dimen/_20sdp"
+        android:textSize="@dimen/_15ssp"
+        android:background="@color/white"/>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

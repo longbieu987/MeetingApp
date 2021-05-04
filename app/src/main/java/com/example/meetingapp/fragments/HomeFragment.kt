@@ -1,16 +1,20 @@
 package com.example.meetingapp.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.meetingapp.R
+import com.example.meetingapp.activities.MessengerActivity
+import com.example.meetingapp.databinding.FragmentHomeBinding
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class HomeFragment : Fragment() {
+    lateinit var binding : FragmentHomeBinding
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -26,9 +30,20 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(inflater)
+
+        initView()
+
+        return binding.root
     }
+
+    fun initView(){
+        binding.cardMessenger.setOnClickListener {
+            startActivity(Intent(context,MessengerActivity::class.java))
+        }
+    }
+
+
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
