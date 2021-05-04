@@ -12,4 +12,10 @@
     <color name="primary_color">#415BDD</color>
     <color name="primary_color_dark">#FF3700B3</color>
     <color name="shadow_color">#36000000</color>
+<!-- Custome -->
+    <color name="background">#E4EBF5</color>
+    <color name="secondary_text">#7D818A</color>
+    <color name="dark_icon">#212121</color>
+    <color name="dark_shadow">#CDD5EA</color>
+    <color name="light_shadow">#F8F9FE</color>
 </resources>

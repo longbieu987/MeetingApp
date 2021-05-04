@@ -48,13 +48,11 @@ class MainActivity : AppCompatActivity() {
         binding.btNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menuHome -> {
-                    binding.toolbarMain.title = "Home"
                     loadFragment(HomeFragment.newInstance("1", "2"))
                     binding.viewPager.currentItem = 0
                     true
                 }
                 R.id.menuPersonal -> {
-                    binding.toolbarMain.title = "Personal"
                     loadFragment(PersonalFragment.newInstance("1", "2"))
                     binding.viewPager.currentItem = 1
                     true

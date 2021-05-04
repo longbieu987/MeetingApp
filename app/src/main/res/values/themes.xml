@@ -20,4 +20,11 @@
 <!--        <item name="colorAccent">@color/colorAccent</item>-->
     </style>
 
+    <style name="CustomShapeAppearance">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSize">@dimen/_10sdp</item>
+
+
+    </style>
+
 </resources>
