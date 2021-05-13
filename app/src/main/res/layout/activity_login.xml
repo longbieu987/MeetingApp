@@ -125,7 +125,7 @@
         app:layout_constraintStart_toEndOf="@id/cbRememberAccount"
         android:text="@string/remember_account"
         app:layout_constraintBaseline_toBaselineOf="@id/cbRememberAccount"/>
-    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -139,9 +139,7 @@
         android:paddingStart="@dimen/_30sdp"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:spinning_bar_color="@color/white"
-        app:spinning_bar_width="@dimen/_4sdp"
-        app:spinning_bar_padding="@dimen/_6sdp"/>
+    />
     <TextView
         android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"

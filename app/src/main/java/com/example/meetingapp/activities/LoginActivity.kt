@@ -52,7 +52,6 @@ class LoginActivity : AppCompatActivity() {
             if (loginBinding.edtEmail.text.isNullOrEmpty() || loginBinding.edtPassword.text.isNullOrEmpty()) {
                 Toast.makeText(this, "Xin hãy nhập đầy dủ thông tin", Toast.LENGTH_SHORT).show()
             } else {
-                loginBinding.btnLogin.startAnimation()
                 checkAccount()
             }
 
@@ -63,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        loginBinding.btnLogin.dispose()
+
     }
 
     private fun checkAccount() {
@@ -77,19 +76,19 @@ class LoginActivity : AppCompatActivity() {
                         })
 
                         startActivity(Intent(this, MainActivity::class.java))
-                        loginBinding.btnLogin.revertAnimation {
-                            loginBinding.btnLogin.text = resources.getString(R.string.login)
-                            loginBinding.btnLogin.setTextColor(resources.getColor(R.color.white))
-                            loginBinding.btnLogin.setBackgroundResource(R.drawable.background_btn_login)
-                        }
+//                        loginBinding.btnLogin.revertAnimation {
+//                            loginBinding.btnLogin.text = resources.getString(R.string.login)
+//                            loginBinding.btnLogin.setTextColor(resources.getColor(R.color.white))
+//                            loginBinding.btnLogin.setBackgroundResource(R.drawable.background_btn_login)
+//                        }
 
 
                     } else {
-                        loginBinding.btnLogin.revertAnimation {
-                            loginBinding.btnLogin.text = resources.getString(R.string.login)
-                            loginBinding.btnLogin.setTextColor(resources.getColor(R.color.white))
-                            loginBinding.btnLogin.setBackgroundResource(R.drawable.background_btn_login)
-                        }
+//                        loginBinding.btnLogin.revertAnimation {
+//                            loginBinding.btnLogin.text = resources.getString(R.string.login)
+//                            loginBinding.btnLogin.setTextColor(resources.getColor(R.color.white))
+//                            loginBinding.btnLogin.setBackgroundResource(R.drawable.background_btn_login)
+//                        }
                         Toast.makeText(this, " ${it.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }

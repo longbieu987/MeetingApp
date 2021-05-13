@@ -15,4 +15,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="personal">Personal</string>
     <string name="video_call">Video Call</string>
+    <string name="messenger">Messenger</string>
+    <string name="chat_with_friends">Chat with friends</string>
+    <string name="call_video_with_friends">Call video with friends</string>
 </resources>

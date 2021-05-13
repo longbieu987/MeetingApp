@@ -149,7 +149,7 @@
         android:src="@drawable/ic_password"
         android:contentDescription="@string/app_name" />
 
-    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -165,9 +165,6 @@
         app:layout_constraintCircleAngle="180"
         android:paddingEnd="@dimen/_25sdp"
         android:text="@string/sign_up"
-        app:spinning_bar_color="@color/primary_color"
-        app:spinning_bar_width="@dimen/_4sdp"
-        app:spinning_bar_padding="@dimen/_6sdp"
         />
 
 
